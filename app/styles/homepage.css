@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+#homepage {
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding: 50px 115px;
+}
+
+.jobs-grid {
+    display: grid;
+    align-self: flex-start;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
+    width: 1050px;
+}
+
+.job {
+    background-color: #0f172a;
+    padding: 30px;
+    font-size: 15px;
+    border-radius: 10px;
+}
+
+.title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.company, .location {
+    color: #64748b;
+}
+
+.j-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 18px;
+    font-weight: 700;
+}
+
+.j-icons div {
+    background-color: #1e293b;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+.j-icons div i {
+    font-size: 20px;
+}
+
+.description {
+    color: #94a3b8;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    margin: 25px 0px;
+    line-height: 1.8em;
+}
+
+.more {
+    background-color: blue;
+    color: white;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    gap: 15px;
+    border-radius: 5px;
+    padding: 18px 30px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.more i {
+    font-size: 22px;
+}
+
+.more:hover {
+    background-color: mediumblue;
+}
+
+.job form {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.job form button {
+    background-color: crimson;
+    color: white;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    gap: 15px;
+    border-radius: 5px;
+    padding: 18px 30px;
+    font-size: 15px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.job form button i {
+    font-size: 22px;
+}
+
+.job form button:hover {
+    background-color: firebrick;
+}
+
+@media(max-width: 1200px) {
+    #homepage {
+        padding: 50px 80px;
+    }
+}
+
+@media(max-width: 1050px) {
+    .jobs-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width: 600px) {
+    #homepage {
+        padding: 50px 50px;
+    }
+
+    .j-icons {
+        flex-wrap: wrap;
+    }
+
+    .job form a span, .job form button span {
+        display: none;
+    }
+
+    .job form a, .job form button {
+        padding: 15px;
+    }
+}
+
+@media(max-width: 400px) {
+    #homepage {
+        padding: 50px 45px;
+    }
+}
+

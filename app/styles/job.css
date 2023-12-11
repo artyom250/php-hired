@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+#job {
+    color: white;
+    padding: 50px 115px;
+}
+
+.job-flex {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.job-d {
+    background-color: #0f172a;
+    color: #94a3b8;
+    padding: 30px;
+    font-size: 15px;
+    border-radius: 10px;
+    max-width: 500px;
+}
+
+.job-d b {
+    color: white;
+    display: flex;
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.job-d p {
+    line-height: 1.8em;
+}
+
+.job-i {
+    background-color: #0f172a;
+    padding: 30px;
+    font-size: 15px;
+    border-radius: 10px;
+}
+
+.apply {
+    background-color: blue;
+    color: white;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    gap: 15px;
+    border-radius: 5px;
+    margin-top: 36px;
+    padding: 18px 30px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.apply i {
+    font-size: 22px;
+}
+
+.apply:hover {
+    background-color: mediumblue;
+}
+
+@media(max-width: 1200px) {
+    #job {
+        padding: 50px 80px;
+    }
+
+    .job-flex {
+        flex-wrap: wrap-reverse;
+    }
+
+    .job-d {
+        max-width: 800px;
+    }
+
+    .job-i {
+        width: 800px;
+    }
+    
+}
+
+@media(max-width: 600px) {
+    #job {
+        padding: 50px 50px;
+    }
+}
+
+@media(max-width: 400px) {
+    #job {
+        padding: 50px 45px;
+    }
+}

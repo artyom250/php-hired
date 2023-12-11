@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+#account {
+    background-color: #030712;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 50px 100px;
+}
+
+#account form {
+    background-color: #111827;
+    color: white;
+    padding: 45px;
+    border-radius: 10px;
+    width: 500px;
+}
+
+.form-head {
+    font-family: 'Lobster', sans-serif;
+    font-size: 30px;
+}
+
+#account form input  {
+    background-color: #1f2937;
+    color: white;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    padding: 17px;
+    border-radius: 5px;
+    width: 100%;
+    transition: 0.3s;
+}
+
+#account form input:hover {
+    background-color: #374151;
+}
+
+#account form button {
+    background-color: blue;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 12.5px;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 17px 30px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+#account form button i {
+    font-size: 24px;
+}
+
+#account form button:hover {
+    background-color: mediumblue;
+}
+
+#account form a {
+    color: #6b7280;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+@media(max-width: 1200px) {
+    #account {
+        padding: 50px 80px;
+    }
+}
+
+@media(max-width: 600px) {
+    #account {
+        padding: 50px 50px;
+    }
+}
+
+@media(max-width: 450px) {
+    #account form {
+        padding: 40px;
+    }
+}
+
+@media(max-width: 400px) {
+    #account {
+        padding: 50px 45px;
+    }
+
+    #account form {
+        padding: 30px;
+    }
+}
+

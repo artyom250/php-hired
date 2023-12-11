@@ -1,0 +1,27 @@
+footer {
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 110px;
+    font-weight: 700;
+}
+
+@media(max-width: 1200px) {
+    footer {
+        padding: 0px 80px;
+    }
+}
+
+@media(max-width: 600px) {
+    footer {
+        padding: 0px 50px;
+        height: 100px;
+    }
+}
+
+@media(max-width: 400px) {
+    footer {
+        padding: 0px 45px;
+    }
+}
