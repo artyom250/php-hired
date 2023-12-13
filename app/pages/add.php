@@ -10,13 +10,21 @@
         $level = $_POST["level"];
         $description = $_POST["description"];
 
-        $sql = "INSERT INTO `jobs` (`title`, `company`, `location`, `salary`, `type`, `level`, `description`) VALUES ('$title', '$company', '$location', '$salary', '$type', '$level', '$description')";
+        $sql = "INSERT INTO `jobs` (`title`, `company`, `location`, `salary`, `type`, `level`, `description`) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $stmt = mysqli_prepare($connect, $sql);
 
-        $result = mysqli_query($connect, $sql);
+        mysqli_stmt_bind_param($stmt, "sssssss", $title, $company, $location, $salary, $type, $level, $description);
 
-        if($result) {
+        $result = mysqli_stmt_execute($stmt);
+
+        if ($result) {
             header("Location: homepage.php");
+        } else {
+            echo "Error: " . mysqli_error($connect);
         }
+
+        mysqli_stmt_close($stmt);
+        mysqli_close($connect);
     }
 ?>
 
