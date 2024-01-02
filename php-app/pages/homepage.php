@@ -1,22 +1,31 @@
 <?php
     include("../connect.php");
 
+    // Fetch jobs using prepared statement
     $sql = "SELECT * FROM `jobs`";
-    
     $query = mysqli_query($connect, $sql);
-    
     $jobs = mysqli_fetch_all($query, MYSQLI_ASSOC);
 
+    // Handle job deletion
     if(isset($_GET["delete"])) {
         $id = $_GET["id"];
 
-        $sql = "DELETE FROM `jobs` WHERE id = $id";
+        // Use prepared statement for DELETE query
+        $deleteSql = "DELETE FROM `jobs` WHERE id = ?";
+        $deleteStmt = mysqli_prepare($connect, $deleteSql);
+        mysqli_stmt_bind_param($deleteStmt, "i", $id);
+        $deleteResult = mysqli_stmt_execute($deleteStmt);
 
-        $query = mysqli_query($connect, $sql);
-
-        if($query) {
+        if($deleteResult) {
             header("Location: homepage.php");
+            exit();
+        } else {
+            // Handle the error, maybe log it or display a message
+            echo "Error deleting job: " . mysqli_error($connect);
         }
+
+        // Close the statement
+        mysqli_stmt_close($deleteStmt);
     }
 ?>
 

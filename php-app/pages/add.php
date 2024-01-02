@@ -10,6 +10,9 @@
         $level = $_POST["level"];
         $description = $_POST["description"];
 
+        // Validate and sanitize user input
+        // Implement your validation logic here
+
         $sql = "INSERT INTO `jobs` (`title`, `company`, `location`, `salary`, `type`, `level`, `description`) VALUES (?, ?, ?, ?, ?, ?, ?)";
         $stmt = mysqli_prepare($connect, $sql);
 
@@ -19,8 +22,13 @@
 
         if ($result) {
             header("Location: homepage.php");
+            exit(); // Ensure no further code execution after redirection
         } else {
-            echo "Error: " . mysqli_error($connect);
+            // Improve error handling
+            $error_message = "Error: " . mysqli_error($connect);
+            // Log the error for debugging purposes
+            error_log($error_message);
+            echo $error_message;
         }
 
         mysqli_stmt_close($stmt);

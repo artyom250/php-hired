@@ -1,22 +1,36 @@
 <?php
     include("./connect.php");
 
-    if(isset($_POST["enter"])) {
+    if (isset($_POST["enter"])) {
         $username = mysqli_real_escape_string($connect, $_POST["username"]);
         $address = mysqli_real_escape_string($connect, $_POST["address"]);
         $password = mysqli_real_escape_string($connect, $_POST["password"]);
-    
-        $sql = "SELECT * FROM `account` WHERE `username` = '$username' AND `email` = '$address' AND `password` = '$password'";
-        $result = mysqli_query($connect, $sql);
-    
-        if($result) {
-            if(mysqli_num_rows($result) > 0) { 
+
+        // Use prepared statements to prevent SQL injection
+        $sql = "SELECT * FROM `account` WHERE `username` = ? AND `email` = ? AND `password` = ?";
+        $stmt = mysqli_prepare($connect, $sql);
+        
+        // Bind parameters
+        mysqli_stmt_bind_param($stmt, "sss", $username, $address, $password);
+
+        // Execute the statement
+        mysqli_stmt_execute($stmt);
+
+        // Get the result
+        $result = mysqli_stmt_get_result($stmt);
+
+        if ($result) {
+            if (mysqli_num_rows($result) > 0) {
                 header("Location: ./pages/homepage.php");
+                exit();
             } else {
-                echo "<script>alert('Wrong username, email or password')</script>";
+                echo "<script>alert('Wrong username, email, or password')</script>";
             }
         }
-    }    
+
+        // Close the statement
+        mysqli_stmt_close($stmt);
+    }
 ?>
 
 <!DOCTYPE html>
